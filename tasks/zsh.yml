@@ -1,0 +1,5 @@
+
+  - name: Install zsh
+    pacman: name=zsh
+  - name: Change shell to zsh
+    shell: chsh -s $(which zsh)

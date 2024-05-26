@@ -1,4 +1,18 @@
 - hosts: localhost
   become: true
+  vars:
+    source_key: "./.ssh/id_rsa"
+    dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
+  pre_tasks:
+    - name: update pacman
+      pacman: 
+        update_cache: yes
+        upgrade: yes
   tasks:
-  - include: tasks/zsh.yml
+
+  # neovim tmux fzf ripgrep the_silver_searcher code alacritty
+
+    - import_tasks: tasks/ssh.yml
+    - import_tasks: tasks/git.yml
+    - import_tasks: tasks/zsh.yml
+    - import_tasks: tasks/dotfiles.yml

@@ -1,5 +1,12 @@
-
   - name: Install zsh
-    pacman: name=zsh
+    pacman: 
+      name: 
+        - zsh
+        - which
+        - curl
   - name: Change shell to zsh
     shell: chsh -s $(which zsh)
+  - name: install antibody
+    shell: curl -sfL git.io/antibody | sh -s - -b /usr/local/bin
+  - name: install nvm
+    shell: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash

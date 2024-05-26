@@ -1,0 +1,6 @@
+- name: install nvm
+  shell: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+- name: install node 20
+  shell: source ~/.zshrc && nvm install 20.11 --default
+  args:
+    executable: /bin/zsh

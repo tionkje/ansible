@@ -4,7 +4,12 @@
       - zsh
       - which
       - curl
+  tags: &tags [ 'install', 'zsh' ]
+
 - name: Change shell to zsh
   shell: chsh -s $(which zsh)
+  tags: *tags
+
 - name: install antibody
   shell: curl -sfL git.io/antibody | sh -s - -b /usr/local/bin
+  tags: *tags

@@ -2,3 +2,4 @@
   pacman: 
     name: 
       - neovim
+  tags: &tags [ 'install', 'nvim' ]

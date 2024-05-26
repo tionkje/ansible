@@ -17,3 +17,4 @@
     - import_tasks: tasks/zsh.yml
     - import_tasks: tasks/dotfiles.yml
     - import_tasks: tasks/nvm.yml
+    - import_tasks: tasks/nvim.yml

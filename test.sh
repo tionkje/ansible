@@ -7,4 +7,4 @@ if [ ! -f /tmp/secrets/vaultpass ]; then
 fi
 docker build -t arch-setup . 
 # docker run --rm -it arch-setup 
-docker run --rm -it -v /tmp/secrets:/tmp/secrets arch-setup bash -c 'ansible-playbook local.yml --vault-password-file /tmp/secrets/vaultpass && zsh'
+docker run --rm -it -v /tmp/secrets:/tmp/secrets arch-setup bash -c 'ansible-playbook -t install local.yml --vault-password-file /tmp/secrets/vaultpass && zsh'

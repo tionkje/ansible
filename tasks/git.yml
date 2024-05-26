@@ -3,3 +3,5 @@
     name: 
       - git
       - lazygit
+  tags: &tags [ 'install' ]
+  

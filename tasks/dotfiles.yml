@@ -2,10 +2,8 @@
   pacman: 
     name:
       - stow
-  tags:
-    - install
-    - dotfiles
-    - stow
+  tags: &tags [ 'install', 'stow', 'dotfiles' ]
+
 - name: Cloning .dotfiles
   ansible.builtin.git:
     repo: 'git@github.com:tionkje/dotfiles.git'
@@ -14,13 +12,8 @@
     update: yes
     accept_hostkey: yes
     version: stow
-  tags:
-    - install
-    - dotfiles
-    - stow
+  tags: *tags
+
 - name: Stow dotfiles
   shell: cd $HOME/.dotfiles && ./archlinux.sh
-  tags:
-    - install
-    - dotfiles
-    - stow
+  tags: *tags

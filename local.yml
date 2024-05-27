@@ -24,7 +24,9 @@
       pacman: 
         name:
           # - code
+          - ttf-meslo-nerd
           - alacritty
+          - keepassxc
       tags: &tags [ 'install' ]
 
     - import_tasks: tasks/ssh.yml
@@ -37,5 +39,6 @@
       tags: [ 'required' ]
     - import_tasks: tasks/nvm.yml
     - import_tasks: tasks/nvim.yml
+    - import_tasks: tasks/tmux.yml
     - import_tasks: tasks/borg.yml
 

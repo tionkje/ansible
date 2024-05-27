@@ -1,0 +1,7 @@
+- name: Install tmux
+  become: yes
+  pacman: 
+    name: 
+      - tmux
+
+  tags: &tags [ 'install', 'tmux' ]

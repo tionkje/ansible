@@ -1,15 +1,22 @@
 - name: Install zsh
+  become: yes
   pacman: 
     name: 
       - zsh
       - which
       - curl
+      - ripgrep
+      - the_silver_searcher
+      - fzf
+      - lf
+
   tags: &tags [ 'install', 'zsh' ]
 
-- name: Change shell to zsh
-  shell: chsh -s $(which zsh)
-  tags: *tags
+# - name: Change shell to zsh
+#   shell: chsh -s $(which zsh)
+#   tags: *tags
 
 - name: install antibody
+  become: yes
   shell: curl -sfL git.io/antibody | sh -s - -b /usr/local/bin
   tags: *tags

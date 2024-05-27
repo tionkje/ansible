@@ -1,7 +1,9 @@
 - name: Install git
+  become: yes
   pacman: 
     name: 
       - git
       - lazygit
+      - diff-so-fancy
   tags: &tags [ 'install' ]
   

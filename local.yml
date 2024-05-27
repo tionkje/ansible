@@ -1,5 +1,4 @@
 - hosts: localhost
-  become: true
   vars:
     source_key: "./.ssh/id_rsa"
     dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
@@ -9,12 +8,32 @@
         update_cache: yes
         upgrade: yes
   tasks:
+    - name: make user
+      user:
+        name: "bastiaan"
+        state: present
+        shell: /bin/zsh
+        createhome: yes
+        home: "/home/bastiaan"
+        groups: wheel
+        append: yes
 
-  # neovim tmux fzf ripgrep the_silver_searcher code alacritty
+    - name: Installing packages
+      become: yes
+      pacman: 
+        name:
+          # - code
+          - alacritty
+      tags: &tags [ 'install' ]
 
     - import_tasks: tasks/ssh.yml
+      tags: [ 'required' ]
     - import_tasks: tasks/git.yml
+      tags: [ 'required' ]
     - import_tasks: tasks/zsh.yml
+      tags: [ 'required' ]
     - import_tasks: tasks/dotfiles.yml
+      tags: [ 'required' ]
     - import_tasks: tasks/nvm.yml
     - import_tasks: tasks/nvim.yml
+

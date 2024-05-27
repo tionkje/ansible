@@ -1,5 +1,9 @@
 - name: Install nvim
+  become: yes
   pacman: 
     name: 
+      - base-devel
       - neovim
+      - rust
+      - unzip
   tags: &tags [ 'install', 'nvim' ]

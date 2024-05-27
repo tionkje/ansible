@@ -1,0 +1,15 @@
+- name: Installing borg
+  become: yes
+  pacman: 
+    name:
+      - borg
+  tags: &tags [ 'install', 'borg' ]
+
+- name: Copy borg passphrase
+  copy:
+    src: "keys/borg_backup_passphrase"
+    dest: "{{ lookup('env', 'HOME') }}/.ssh/borg_backup_passphrase"
+    mode: 0644
+  become: true
+  become_user: bastiaan
+  tags: *tags

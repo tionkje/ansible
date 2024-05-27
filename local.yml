@@ -36,4 +36,5 @@
       tags: [ 'required' ]
     - import_tasks: tasks/nvm.yml
     - import_tasks: tasks/nvim.yml
+    - import_tasks: tasks/borg.yml
 
